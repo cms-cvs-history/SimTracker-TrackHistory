@@ -1,7 +1,7 @@
-void distributions()
+void OptTOA()
 {
    gROOT->SetStyle("Plain");
-   TFile * file = new TFile("result.root");
+   TFile * file = new TFile("test.root");
 
 //=========Macro generated from canvas: c1/c1
 //=========  (Wed May 16 12:11:16 2007) by ROOT version5.14/00b
