@@ -18,3 +18,7 @@
 <library file="SimpleTHA.cc" name=SimpleTHA>
   <flags EDM_PLUGIN=1>
 </library>
+<library file="BTrackingParticleSelector.cc" name=BTrackingParticleSelection>
+  <flags EDM_PLUGIN=1>
+</library>
+
