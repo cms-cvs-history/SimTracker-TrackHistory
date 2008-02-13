@@ -1,0 +1,4 @@
+module cutsTPB = BTrackSelection
+{
+	InputTag src = trackingtruthprod
+}
