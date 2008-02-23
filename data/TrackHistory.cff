@@ -1,0 +1,6 @@
+
+string recoTrackModule = "ctfWithMaterialTracks"
+string trackingParticleModule = "trackingtruthprod"
+string trackingParticleProduct = ""
+string associationModule = "TrackAssociatorByHits"
+bool   bestMatchByMaxValue = true

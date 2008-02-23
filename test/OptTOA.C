@@ -16,30 +16,30 @@ void OptTOA()
    
    THStack * hs1 = new THStack("hs", "Signed decay length for all tracks.");
       
-   //decayLength_fake_tracks->SetLineColor(kGreen);
-   decayLength_fake_tracks->SetFillColor(kGreen);
-   processWithErrors(decayLength_fake_tracks);
-   hs1->Add(decayLength_fake_tracks);
+   //sdlsdl_fake_tracks->SetLineColor(kGreen);
+   sdl_fake_tracks->SetFillColor(kGreen);
+   processWithErrors(sdl_fake_tracks);
+   hs1->Add(sdl_fake_tracks);
 
-   //decayLength_displaced_tracks->SetLineColor(kRed);
-   decayLength_displaced_tracks->SetFillColor(kRed);
-   processWithErrors(decayLength_displaced_tracks);
-   hs1->Add(decayLength_displaced_tracks); 
+   //sdl_displaced_tracks->SetLineColor(kRed);
+   sdl_displaced_tracks->SetFillColor(kRed);
+   processWithErrors(sdl_displaced_tracks);
+   hs1->Add(sdl_displaced_tracks); 
 
-   //decayLength_bad_tracks->SetLineColor(kYellow);
-   decayLength_bad_tracks->SetFillColor(kCyan);
-   processWithErrors(decayLength_bad_tracks);
-   hs1->Add(decayLength_bad_tracks);
+   //sdl_bad_tracks->SetLineColor(kYellow);
+   sdl_bad_tracks->SetFillColor(kCyan);
+   processWithErrors(sdl_bad_tracks);
+   hs1->Add(sdl_bad_tracks);
 
-   // decayLength_B_tracks->SetLineColor(kBlue);
-   decayLength_B_tracks->SetFillColor(kBlue);
-   processWithErrors(decayLength_B_tracks);
-   hs1->Add(decayLength_B_tracks); 
+   // sdl_B_tracks->SetLineColor(kBlue);
+   sdl_B_tracks->SetFillColor(kBlue);
+   processWithErrors(sdl_B_tracks);
+   hs1->Add(sdl_B_tracks); 
        
-   //decayLength_nonB_tracks->SetLineColor(kBlack);
-   decayLength_nonB_tracks->SetFillColor(kBlack);
-   processWithErrors(decayLength_nonB_tracks);
-   hs1->Add(decayLength_nonB_tracks); 
+   //sdl_nonB_tracks->SetLineColor(kBlack);
+   sdl_nonB_tracks->SetFillColor(kBlack);
+   processWithErrors(sdl_nonB_tracks);
+   hs1->Add(sdl_nonB_tracks); 
  
    hs1->Draw("nostack bar");
    hs1->GetXaxis()->SetTitle("Signed decay length [cm]");
@@ -52,11 +52,11 @@ void OptTOA()
    leg1->SetLineWidth(1);
    leg1->SetFillColor(0);
    leg1->SetFillStyle(1001);
-   leg1->AddEntry(decayLength_fake_tracks,"Fake", "f");
-   leg1->AddEntry(decayLength_bad_tracks,"Bad", "f");
-   leg1->AddEntry(decayLength_displaced_tracks,"Displaced", "f");
-   leg1->AddEntry(decayLength_B_tracks,"B", "f");
-   leg1->AddEntry(decayLength_nonB_tracks,"Non B", "f");   
+   leg1->AddEntry(sdl_fake_tracks,"Fake", "f");
+   leg1->AddEntry(sdl_bad_tracks,"Bad", "f");
+   leg1->AddEntry(sdl_displaced_tracks,"Displaced", "f");
+   leg1->AddEntry(sdl_B_tracks,"B", "f");
+   leg1->AddEntry(sdl_nonB_tracks,"Non B", "f");   
    leg1->Draw();
 
    c1->cd(2);
@@ -65,30 +65,30 @@ void OptTOA()
    
    THStack * hs2 = new THStack("hs", "Distance to jet for all tracks.");
 
-   // distanceToAxis_fake_tracks->SetLineColor(kBlack);
-   distanceToAxis_fake_tracks->SetFillColor(kGreen);
-   processWithErrors(distanceToAxis_fake_tracks);
-   hs2->Add(distanceToAxis_fake_tracks); 
+   // dta_fake_tracks->SetLineColor(kBlack);
+   dta_fake_tracks->SetFillColor(kGreen);
+   processWithErrors(dta_fake_tracks);
+   hs2->Add(dta_fake_tracks); 
    
-   // distanceToAxis_displaced_tracks->SetLineColor(kWhite);
-   distanceToAxis_displaced_tracks->SetFillColor(kRed);
-   processWithErrors(distanceToAxis_displaced_tracks);
-   hs2->Add(distanceToAxis_displaced_tracks); 
+   // dta_displaced_tracks->SetLineColor(kWhite);
+   dta_displaced_tracks->SetFillColor(kRed);
+   processWithErrors(dta_displaced_tracks);
+   hs2->Add(dta_displaced_tracks); 
 
-  //decayLength_bad_tracks->SetLineColor(kYellow);
-   distanceToAxis_bad_tracks->SetFillColor(kCyan);
-   processWithErrors(distanceToAxis_bad_tracks);
-   hs2->Add(distanceToAxis_bad_tracks);
+  //sdl_bad_tracks->SetLineColor(kYellow);
+   dta_bad_tracks->SetFillColor(kCyan);
+   processWithErrors(dta_bad_tracks);
+   hs2->Add(dta_bad_tracks);
 
-  // distanceToAxis_B_tracks->SetLineColor(kWhite); 
-   distanceToAxis_B_tracks->SetFillColor(kBlue);
-   processWithErrors(distanceToAxis_B_tracks);
-   hs2->Add(distanceToAxis_B_tracks); 
+  // dta_B_tracks->SetLineColor(kWhite); 
+   dta_B_tracks->SetFillColor(kBlue);
+   processWithErrors(dta_B_tracks);
+   hs2->Add(dta_B_tracks); 
       
-   // distanceToAxis_nonB_tracks->SetLineColor(kWhite);
-   distanceToAxis_nonB_tracks->SetFillColor(kBlack);
-   processWithErrors(distanceToAxis_nonB_tracks);
-   hs2->Add(distanceToAxis_nonB_tracks); 
+   // dta_nonB_tracks->SetLineColor(kWhite);
+   dta_nonB_tracks->SetFillColor(kBlack);
+   processWithErrors(dta_nonB_tracks);
+   hs2->Add(dta_nonB_tracks); 
   
    hs2->Draw("nostack bar");
    hs2->GetXaxis()->SetTitle("Distance to jet [cm]");
@@ -101,11 +101,11 @@ void OptTOA()
    leg2->SetLineWidth(1);
    leg2->SetFillColor(0);
    leg2->SetFillStyle(1001);
-   leg2->AddEntry(distanceToAxis_fake_tracks,"Fake", "f");
-   leg2->AddEntry(distanceToAxis_bad_tracks,"Bad", "f");
-   leg2->AddEntry(distanceToAxis_displaced_tracks,"Displaced", "f");
-   leg2->AddEntry(distanceToAxis_B_tracks,"B", "f");
-   leg2->AddEntry(distanceToAxis_nonB_tracks,"Non B", "f");   
+   leg2->AddEntry(dta_fake_tracks,"Fake", "f");
+   leg2->AddEntry(dta_bad_tracks,"Bad", "f");
+   leg2->AddEntry(dta_displaced_tracks,"Displaced", "f");
+   leg2->AddEntry(dta_B_tracks,"B", "f");
+   leg2->AddEntry(dta_nonB_tracks,"Non B", "f");   
    leg2->Draw();
 
    c1->cd(3);
@@ -124,7 +124,7 @@ void OptTOA()
    processWithErrors(lip_displaced_tracks);
    hs3->Add(lip_displaced_tracks); 
 
-  //decayLength_bad_tracks->SetLineColor(kYellow);
+  //sdl_bad_tracks->SetLineColor(kYellow);
    lip_bad_tracks->SetFillColor(kCyan);
    processWithErrors(lip_bad_tracks);
    hs3->Add(lip_bad_tracks);
