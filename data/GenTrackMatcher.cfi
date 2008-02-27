@@ -1,0 +1,34 @@
+
+module generalGenTrackMatcher = GenTrackMatcher {
+  string recoTrackModule = "ctfWithMaterialTracks"
+  string trackingParticleModule = "trackingtruthprod"
+  string trackingParticleProduct = ""
+  string associationModule = "TrackAssociatorByHits"
+  string genParticles = "genParticles"
+  bool   bestMatchByMaxValue = true
+}
+
+module globalMuonsGenTrackMatcher = GenTrackMatcher {
+  string recoTrackModule = "globalMuons"
+  string trackingParticleModule = "trackingtruthprod"
+  string trackingParticleProduct = ""
+  string associationModule = "TrackAssociatorByHits"
+  string genParticles = "genParticles"
+  bool   bestMatchByMaxValue = true
+}
+
+module standAloneMuonsGenTrackMatcher = GenTrackMatcher {
+  string recoTrackModule = "standAloneMuons"
+  string trackingParticleModule = "trackingtruthprod"
+  string trackingParticleProduct = ""
+  string associationModule = "TrackAssociatorByHits"
+  string genParticles = "genParticles"
+  bool   bestMatchByMaxValue = true
+}
+
+sequence genTrackMatcher  = { 
+  generalGenTrackMatcher,
+  globalMuonsGenTrackMatcher,
+  standAloneMuonsGenTrackMatcher
+}
+
