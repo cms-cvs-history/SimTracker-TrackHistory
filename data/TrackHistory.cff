@@ -1,9 +1,6 @@
 
-block trackHistory = { 
-  string recoTrackModule = "ctfWithMaterialTracks"
-  string trackingParticleModule = "trackingtruthprod"
-  string trackingParticleProduct = ""
-  string associationModule = "TrackAssociatorByHits"
-  bool   bestMatchByMaxValue = true
-}
-
+string recoTrackModule = "ctfWithMaterialTracks"
+string trackingParticleModule = "trackingtruthprod"
+string trackingParticleProduct = ""
+string associationModule = "TrackAssociatorByHits"
+bool   bestMatchByMaxValue = true
