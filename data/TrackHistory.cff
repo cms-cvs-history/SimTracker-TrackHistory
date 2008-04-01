@@ -1,4 +1,9 @@
 
+# Track Associators
+include "SimTracker/TrackAssociation/data/TrackAssociatorByChi2.cfi"
+include "SimTracker/TrackAssociation/data/TrackAssociatorByHits.cfi"
+
+# Track history parameters
 block trackHistory = { 
   string recoTrackModule = "ctfWithMaterialTracks"
   string trackingParticleModule = "trackingtruthprod"
