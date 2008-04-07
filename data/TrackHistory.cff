@@ -5,10 +5,10 @@ include "SimTracker/TrackAssociation/data/TrackAssociatorByHits.cfi"
 
 # Track history parameters
 block trackHistory = { 
-  string recoTrackModule = "ctfWithMaterialTracks"
-  string trackingParticleModule = "trackingtruthprod"
-  string trackingParticleProduct = ""
+  string recoTrackModule = "generalTracks"
+  string trackingParticleModule = "mergedtruth"
+  string trackingParticleProduct = "MergedTrackTruth"
   string associationModule = "TrackAssociatorByHits"
-  bool   bestMatchByMaxValue = true
+  bool bestMatchByMaxValue = true
 }
 
