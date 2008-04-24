@@ -1,4 +1,9 @@
-module cutsTPB = BTrackSelection
+module cutsTPB = BTrackingParticleSelection
 {
-	InputTag src = trackingtruthprod
+	string recoTrackModule = "generalTracks"
+   	string trackingParticleModule = "trackingtruthprod"
+   	string trackingParticleProduct = ""
+   	string associationModule = "TrackAssociatorByHits"
+	bool bestMatchByMaxValue = true
+	InputTag src = mergedtruth:MergedTrackTruth
 }
