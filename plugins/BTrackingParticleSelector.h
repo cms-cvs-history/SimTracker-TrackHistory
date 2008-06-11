@@ -28,7 +28,9 @@ class BTrackingParticleSelector {
 
   // select object from a collection and 
   // possibly event content
-  void select( const edm::Handle<collection> & TPCH, const edm::Event & iEvent, const edm::EventSetup & iSetup)
+  void select( const edm::Handle<collection> & TPCH, const edm::Event & iEvent
+	       //, const edm::EventSetup & iSetup
+)
   {
     selected_.clear();
 

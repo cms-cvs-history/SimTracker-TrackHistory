@@ -33,13 +33,19 @@ class TrackParticleSelector {
 
   // select object from a collection and 
   // possibly event content
-  void select( const edm::Handle<collection> & TPCH, const edm::Event & iEvent, const edm::EventSetup &iSetup)
+  void select( const edm::Handle<collection> & TPCH, const edm::Event & iEvent
+	       //, const edm::EventSetup &iSetup
+)
   {
     selected_.clear();
 
     const collection & tpc = *(TPCH.product());
 
-    classifier_.newEvent(iEvent, iSetup);
+    //
+    // CAVEAT: this is just to make it compiling, functionality lost
+    //
+
+    //    classifier_.newEvent(iEvent, iSetup);
             
     for(typename collection::size_type i=0; i<tpc.size(); i++)
     {  

@@ -39,7 +39,7 @@ void TrackHistory::newEvent (
 )
 {
   // Track collection
-  edm::Handle<edm::View<reco::Track> > trackCollection;
+  edm::Handle<reco::TrackCollection> trackCollection;
   iEvent.getByLabel(recoTrackModule_, trackCollection);
    
   // Tracking particle information
@@ -163,12 +163,14 @@ bool TrackHistory::evaluate ( edm::RefToBase<reco::Track> tr )
 
 TrackingParticleRef TrackHistory::match ( edm::RefToBase<reco::Track> tr )
 {
+
+  reco::TrackRef trk = tr.castTo<reco::TrackRef>(); 
   TrackingParticleRef tpr;
   std::vector<std::pair<TrackingParticleRef, double> > tp;
 
   try
   {	
-    tp = association_[tr];
+    tp = association_[trk];
   }
   catch (edm::Exception event) 
   {

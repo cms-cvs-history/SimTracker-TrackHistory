@@ -131,9 +131,15 @@ void TrackCategories::byReco(edm::RefToBase<reco::Track> track)
 {
   TrackingParticleRef tpr = tracer_.simParticle();
 
+
   // Compute tracking particle parameters at point of closest approach to the beamline
   const SimTrack * assocTrack = &(*tpr->g4Track_begin());
  
+
+
+
+
+
   FreeTrajectoryState ftsAtProduction(
     GlobalPoint(
       tpr->vertex().x(),
@@ -148,14 +154,14 @@ void TrackCategories::byReco(edm::RefToBase<reco::Track> track)
     TrackCharge(track->charge()),
     magneticField_.product()
   );
-      
+
   TSCPBuilderNoMaterial tscpBuilder;
   
   TrajectoryStateClosestToPoint tsAtClosestApproach = tscpBuilder(
     ftsAtProduction,
     GlobalPoint(0,0,0)
   );
-  
+
   GlobalPoint v = tsAtClosestApproach.theState().position();
   GlobalVector p = tsAtClosestApproach.theState().momentum(); 
   
@@ -167,6 +173,7 @@ void TrackCategories::byReco(edm::RefToBase<reco::Track> track)
   
   // Return true if d0Pull < 3 sigmas
   flags_[Bad] = (d0Pull < 3.0) ? false: true;  
+
 }
 
 
