@@ -1,14 +1,16 @@
 
+# Magnetic Field, Geometry, TransientTracks
+include "Configuration/StandardSequences/data/MagneticField.cff"
+
 # Track Associators
 include "SimTracker/TrackAssociation/data/TrackAssociatorByChi2.cfi"
 include "SimTracker/TrackAssociation/data/TrackAssociatorByHits.cfi"
 
 # Track history parameters
 block trackHistory = { 
-  string recoTrackModule = "generalTracks"
-  string trackingParticleModule = "mergedtruth"
-  string trackingParticleProduct = "MergedTrackTruth"
-  string associationModule = "TrackAssociatorByHits"
-  bool bestMatchByMaxValue = true
+  untracked InputTag trackProducer = generalTracks
+  untracked InputTag trackingTruth = mergedtruth:MergedTrackTruth
+  untracked string trackAssociator = "TrackAssociatorByHits"
+  untracked bool bestMatchByMaxValue = true
 }
 

@@ -5,6 +5,6 @@ include "RecoJets/JetAssociationProducers/data/j2tParametersVX.cfi"
 module ic5JetVetoedTracksAssociatorAtVertex = JetVetoedTracksAssociatorAtVertex {
   using trackHistory
   using j2tParametersVX
-  InputTag jets   = iterativeCone5CaloJets
+  InputTag jets = iterativeCone5CaloJets
 }
 

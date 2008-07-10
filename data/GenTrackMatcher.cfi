@@ -1,34 +1,42 @@
 
+# Include Particle data table
+include "SimGeneral/HepPDTESSource/data/pythiapdt.cfi"
+
+# Magnetic Field
+include "Configuration/StandardSequences/data/MagneticField.cff"
+
+# Track Associators
+include "SimTracker/TrackAssociation/data/TrackAssociatorByChi2.cfi"
+include "SimTracker/TrackAssociation/data/TrackAssociatorByHits.cfi"
+
 module generalGenTrackMatcher = GenTrackMatcher {
-  string recoTrackModule = "ctfWithMaterialTracks"
-  string trackingParticleModule = "trackingtruthprod"
-  string trackingParticleProduct = ""
-  string associationModule = "TrackAssociatorByHits"
-  string genParticles = "genParticles"
-  bool   bestMatchByMaxValue = true
+  untracked InputTag trackProducer = generalTracks
+  untracked InputTag trackingTruth = mergedtruth:MergedTrackTruth
+  untracked InputTag genParticles = genParticles 
+  untracked string trackAssociator = "TrackAssociatorByHits"
+  untracked bool bestMatchByMaxValue = true
 }
 
-module globalMuonsGenTrackMatcher = GenTrackMatcher {
-  string recoTrackModule = "globalMuons"
-  string trackingParticleModule = "trackingtruthprod"
-  string trackingParticleProduct = ""
-  string associationModule = "TrackAssociatorByHits"
-  string genParticles = "genParticles"
-  bool   bestMatchByMaxValue = true
+module globalMuonsGenTrackMatcher = GenTrackMatcher  {
+  untracked InputTag trackProducer = globalMuons 
+  untracked InputTag trackingTruth = mergedtruth:MergedTrackTruth
+  untracked InputTag genParticles = genParticles
+  untracked string trackAssociator = "TrackAssociatorByHits"
+  untracked bool bestMatchByMaxValue = true
 }
 
 module standAloneMuonsGenTrackMatcher = GenTrackMatcher {
-  string recoTrackModule = "standAloneMuons"
-  string trackingParticleModule = "trackingtruthprod"
-  string trackingParticleProduct = ""
-  string associationModule = "TrackAssociatorByHits"
-  string genParticles = "genParticles"
-  bool   bestMatchByMaxValue = true
+  untracked InputTag trackProducer = standAloneMuons 
+  untracked InputTag trackingTruth = mergedtruth:MergedTrackTruth
+  untracked InputTag genParticles = genParticles
+  untracked string trackAssociator = "TrackAssociatorByHits"
+  untracked bool bestMatchByMaxValue = true
 }
 
-sequence genTrackMatcher  = { 
+sequence genTrackMatcher = { 
   generalGenTrackMatcher,
   globalMuonsGenTrackMatcher,
   standAloneMuonsGenTrackMatcher
 }
+
 
