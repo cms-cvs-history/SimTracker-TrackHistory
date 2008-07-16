@@ -10,8 +10,8 @@ include "SimTracker/TrackAssociation/data/TrackAssociatorByChi2.cfi"
 include "SimTracker/TrackAssociation/data/TrackAssociatorByHits.cfi"
 
 module generalGenTrackMatcher = GenTrackMatcher {
-  untracked InputTag trackProducer = generalTracks
-  untracked InputTag trackingTruth = mergedtruth:MergedTrackTruth
+  untracked InputTag trackProducer = ctfWithMaterialTracks
+  untracked InputTag trackingTruth = trackingtruthprod
   untracked InputTag genParticles = genParticles 
   untracked string trackAssociator = "TrackAssociatorByHits"
   untracked bool bestMatchByMaxValue = true
@@ -19,7 +19,7 @@ module generalGenTrackMatcher = GenTrackMatcher {
 
 module globalMuonsGenTrackMatcher = GenTrackMatcher  {
   untracked InputTag trackProducer = globalMuons 
-  untracked InputTag trackingTruth = mergedtruth:MergedTrackTruth
+  untracked InputTag trackingTruth = trackingtruthprod
   untracked InputTag genParticles = genParticles
   untracked string trackAssociator = "TrackAssociatorByHits"
   untracked bool bestMatchByMaxValue = true
@@ -27,7 +27,7 @@ module globalMuonsGenTrackMatcher = GenTrackMatcher  {
 
 module standAloneMuonsGenTrackMatcher = GenTrackMatcher {
   untracked InputTag trackProducer = standAloneMuons 
-  untracked InputTag trackingTruth = mergedtruth:MergedTrackTruth
+  untracked InputTag trackingTruth = trackingtruthprod
   untracked InputTag genParticles = genParticles
   untracked string trackAssociator = "TrackAssociatorByHits"
   untracked bool bestMatchByMaxValue = true

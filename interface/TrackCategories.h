@@ -13,9 +13,11 @@
 #include <string>
 #include <vector>
 
-namespace TrackCategories {
+namespace TrackCategories
+{
 
-  enum Category {
+enum Category
+{
     Fake = 0,
     Bad,
     SignalEvent,
@@ -34,9 +36,9 @@ namespace TrackCategories {
     SecondaryVertex,
     TierciaryVertex,
     Unknown
-  };
+};
 
-  typedef std::vector<bool> Flags;
+typedef std::vector<bool> Flags;
 }
 
 std::ostream & operator<< (std::ostream & os, TrackCategories::Flags const &);

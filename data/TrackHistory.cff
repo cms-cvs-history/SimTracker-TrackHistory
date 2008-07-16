@@ -1,6 +1,6 @@
 
 # Magnetic Field, Geometry, TransientTracks
-include "Configuration/StandardSequences/data/MagneticField.cff"
+include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
 
 # Track Associators
 include "SimTracker/TrackAssociation/data/TrackAssociatorByChi2.cfi"
@@ -8,8 +8,8 @@ include "SimTracker/TrackAssociation/data/TrackAssociatorByHits.cfi"
 
 # Track history parameters
 block trackHistory = { 
-  untracked InputTag trackProducer = generalTracks
-  untracked InputTag trackingTruth = mergedtruth:MergedTrackTruth
+  untracked InputTag trackProducer = ctfWithMaterialTracks
+  untracked InputTag trackingTruth = trackingtruthprod 
   untracked string trackAssociator = "TrackAssociatorByHits"
   untracked bool bestMatchByMaxValue = true
 }
