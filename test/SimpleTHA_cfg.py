@@ -5,6 +5,9 @@ process = cms.Process("TrackOriginAnalyzerTest")
 # Message logger
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
 
+# Conditions
+process.load("Configuration.StandardSequences.FakeConditions_cff")
+
 # TrackHistory setup
 process.load("SimTracker.TrackHistory.TrackClassifier_cff")
 
@@ -21,4 +24,11 @@ process.trackHistoryAnalyzer = cms.EDFilter("SimpleTHA",
 )
 
 process.p = cms.Path(process.trackHistoryAnalyzer)
+
+import SimTracker.TrackHistory.DBSPlugin as DBSPlugin
+
+process.PoolSource.fileNames = DBSPlugin.get(
+    dataset = "/RelValTTbar/CMSSW_2_1_0_pre6-RelVal-1214048167-IDEAL_V2-2nd/GEN-SIM-DIGI-RAW-HLTDEBUG-RECO",
+    site = "cmssrm.fnal.gov"
+)
 
