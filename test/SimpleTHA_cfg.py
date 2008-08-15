@@ -28,7 +28,7 @@ process.p = cms.Path(process.trackHistoryAnalyzer)
 import SimTracker.TrackHistory.DBSPlugin as DBSPlugin
 
 process.PoolSource.fileNames = DBSPlugin.get(
-    dataset = "/RelValTTbar/CMSSW_2_1_0_pre6-RelVal-1214048167-IDEAL_V2-2nd/GEN-SIM-DIGI-RAW-HLTDEBUG-RECO",
+    dataset = "/RelValTTbar/CMSSW_2_1_0_STARTUP_V4_v1/GEN-SIM-DIGI-RAW-HLTDEBUG-RECO",
     site = "cmssrm.fnal.gov"
 )
 
