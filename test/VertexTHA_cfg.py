@@ -1,12 +1,15 @@
 import FWCore.ParameterSet.Config as cms
 
 process = cms.Process("TrackOriginAnalyzerTest")
-# Message logger
+
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
+
+process.load("Configuration.StandardSequences.FakeConditions_cff")
+
+process.load("Configuration.StandardSequences.GeometryIdeal_cff")
 
 process.load("SimGeneral.HepPDTESSource.pythiapdt_cfi")
 
-# TrackHistory setup
 process.load("SimTracker.TrackHistory.TrackHistory_cff")
 
 process.source = cms.Source("PoolSource",

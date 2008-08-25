@@ -8,6 +8,9 @@ process.load("FWCore.MessageLogger.MessageLogger_cfi")
 # Conditions
 process.load("Configuration.StandardSequences.FakeConditions_cff")
 
+# Geometry
+process.load("Configuration.StandardSequences.GeometryIdeal_cff")
+
 # TrackHistory setup
 process.load("SimTracker.TrackHistory.TrackClassifier_cff")
 
@@ -28,7 +31,7 @@ process.p = cms.Path(process.trackHistoryAnalyzer)
 import SimTracker.TrackHistory.DBSPlugin as DBSPlugin
 
 process.PoolSource.fileNames = DBSPlugin.get(
-    dataset = "/RelValTTbar/CMSSW_2_1_0_STARTUP_V4_v1/GEN-SIM-DIGI-RAW-HLTDEBUG-RECO",
-    site = "cmssrm.fnal.gov"
+    dataset = "/RelValQCD_Pt_80_120/CMSSW_2_1_2_STARTUP_V5_10TeV_v1/GEN-SIM-DIGI-RAW-HLTDEBUG-RECO",
+    site = "srm.cern.ch"
 )
 

@@ -3,9 +3,9 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("TrackOriginAnalyzerTest")
 
 process.load("FWCore.MessageLogger.MessageLogger_cfi");
-
+process.load("Configuration.StandardSequences.FakeConditions_cff")
+process.load("Configuration.StandardSequences.GeometryIdeal_cff")
 process.load("SimTracker.TrackHistory.TrackClassifier_cff")
-
 process.load("Configuration.StandardSequences.FakeConditions_cff")
 
 process.source = cms.Source("PoolSource",
