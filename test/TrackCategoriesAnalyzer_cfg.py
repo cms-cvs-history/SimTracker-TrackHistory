@@ -33,4 +33,3 @@ process.trackCategoriesAnalyzer = cms.EDFilter("TrackCategoriesAnalyzer",
 
 process.p = cms.Path(process.trackCategoriesAnalyzer)
 
-
