@@ -5,15 +5,18 @@ process = cms.Process("TrackOriginAnalyzerTest")
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
 
 process.load("SimTracker.TrackHistory.Playback_cff")
+process.load("SimTracker.TrackHistory.SVTagInfoVertexAdapter_cff")
 process.load("SimTracker.TrackHistory.VertexHistory_cff")
 
-process.trackHistoryAnalyzer = cms.EDFilter("SimpleVHA",
+process.vertexHistoryAnalyzer = cms.EDFilter("VertexHistoryAnalyzer",
     process.vertexHistory
 )
 
 process.GlobalTag.globaltag = 'IDEAL_30X::All'
 
-process.p = cms.Path(process.playback * process.trackHistoryAnalyzer)
+process.vertexHistoryAnalyzer.vertexProducer = 'svTagInfoVertexAdapter'
+
+process.p = cms.Path(process.playback * process.svTagInfoVertexAdapter * process.vertexHistoryAnalyzer)
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(100) )
 readFiles = cms.untracked.vstring()

@@ -22,7 +22,7 @@ process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32(100)
 )
 
-process.trackHistoryAnalyzer = cms.EDFilter("SimpleTHA",
+process.trackHistoryAnalyzer = cms.EDFilter("TrackHistoryAnalyzer",
     process.trackClassifier
 )
 
