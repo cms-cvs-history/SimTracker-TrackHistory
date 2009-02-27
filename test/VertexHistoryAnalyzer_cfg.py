@@ -6,10 +6,10 @@ process.load("FWCore.MessageLogger.MessageLogger_cfi")
 
 process.load("SimTracker.TrackHistory.Playback_cff")
 process.load("SimTracker.TrackHistory.SVTagInfoVertexAdapter_cff")
-process.load("SimTracker.TrackHistory.VertexHistory_cff")
+process.load("SimTracker.TrackHistory.VertexClassifier_cff")
 
 process.vertexHistoryAnalyzer = cms.EDFilter("VertexHistoryAnalyzer",
-    process.vertexHistory
+    process.vertexClassifier
 )
 
 process.GlobalTag.globaltag = 'IDEAL_30X::All'
