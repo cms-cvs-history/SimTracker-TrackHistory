@@ -8,15 +8,22 @@ process.load("SimTracker.TrackHistory.Playback_cff")
 process.load("SimTracker.TrackHistory.SVTagInfoVertexAdapter_cff")
 process.load("SimTracker.TrackHistory.VertexClassifier_cff")
 
-process.vertexHistoryAnalyzer = cms.EDFilter("VertexHistoryAnalyzer",
+from SimTracker.TrackHistory.CategorySelector_cff import * 
+
+process.vertexSelector = VertexCategorySelector( 
+    select = "is('BWeakDecay') && !is('CWeakDecay')",
+    source = 'svTagInfoVertexAdapter'
+)
+
+process.vertexHistoryAnalyzer = cms.EDAnalyzer("VertexHistoryAnalyzer",
     process.vertexClassifier
 )
 
+process.vertexHistoryAnalyzer.vertexProducer = 'vertexSelector'
+
 process.GlobalTag.globaltag = 'IDEAL_30X::All'
 
-process.vertexHistoryAnalyzer.vertexProducer = 'svTagInfoVertexAdapter'
-
-process.p = cms.Path(process.playback * process.svTagInfoVertexAdapter * process.vertexHistoryAnalyzer)
+process.p = cms.Path(process.playback * process.svTagInfoVertexAdapter * process.vertexSelector * process.vertexHistoryAnalyzer)
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(100) )
 readFiles = cms.untracked.vstring()
