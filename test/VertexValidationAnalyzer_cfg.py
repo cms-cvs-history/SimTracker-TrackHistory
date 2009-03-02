@@ -20,7 +20,7 @@ process.vertexValidationAnalyzer = cms.EDFilter("VertexValidationAnalyzer",
 
 process.GlobalTag.globaltag = 'IDEAL_30X::All'
 
-process.vertexValidationAnalyzer.vertexProducer = 'svTagInfoVertexAdapter'
+process.vertexValidationAnalyzer.vertexProducer = 'svTagInfoVertexProxy'
 
 process.p = cms.Path(process.playback * process.svTagInfoVertexProxy * process.vertexValidationAnalyzer)
 
