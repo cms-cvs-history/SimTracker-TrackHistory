@@ -5,7 +5,7 @@ process = cms.Process("TrackOriginAnalyzerTest")
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
 
 process.load("SimTracker.TrackHistory.Playback_cff")
-process.load("SimTracker.TrackHistory.SVTagInfoVertexAdapter_cff")
+process.load("SimTracker.TrackHistory.SVTagInfoVertexProxy_cff")
 process.load("SimTracker.TrackHistory.VertexClassifier_cff")
 
 process.add_(
@@ -22,7 +22,7 @@ process.GlobalTag.globaltag = 'IDEAL_30X::All'
 
 process.vertexValidationAnalyzer.vertexProducer = 'svTagInfoVertexAdapter'
 
-process.p = cms.Path(process.playback * process.svTagInfoVertexAdapter * process.vertexValidationAnalyzer)
+process.p = cms.Path(process.playback * process.svTagInfoVertexProxy * process.vertexValidationAnalyzer)
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(100) )
 readFiles = cms.untracked.vstring()

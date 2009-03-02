@@ -5,14 +5,14 @@ process = cms.Process("TrackOriginAnalyzerTest")
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
 
 process.load("SimTracker.TrackHistory.Playback_cff")
-process.load("SimTracker.TrackHistory.SVTagInfoVertexAdapter_cff")
+process.load("SimTracker.TrackHistory.SVTagInfoVertexProxy_cff")
 process.load("SimTracker.TrackHistory.VertexClassifier_cff")
 
 from SimTracker.TrackHistory.CategorySelector_cff import * 
 
 process.vertexSelector = VertexCategorySelector( 
-    select = "is('BWeakDecay') && !is('CWeakDecay')",
-    source = 'svTagInfoVertexAdapter'
+    cut = "is('BWeakDecay') && !is('CWeakDecay')",
+    src = 'svTagInfoVertexProxy'
 )
 
 process.vertexHistoryAnalyzer = cms.EDAnalyzer("VertexHistoryAnalyzer",
@@ -23,7 +23,7 @@ process.vertexHistoryAnalyzer.vertexProducer = 'vertexSelector'
 
 process.GlobalTag.globaltag = 'IDEAL_30X::All'
 
-process.p = cms.Path(process.playback * process.svTagInfoVertexAdapter * process.vertexSelector * process.vertexHistoryAnalyzer)
+process.p = cms.Path(process.playback * process.svTagInfoVertexProxy * process.vertexSelector * process.vertexHistoryAnalyzer)
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(100) )
 readFiles = cms.untracked.vstring()
