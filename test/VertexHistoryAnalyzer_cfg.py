@@ -11,8 +11,8 @@ process.load("SimTracker.TrackHistory.VertexClassifier_cff")
 from SimTracker.TrackHistory.CategorySelector_cff import * 
 
 process.vertexSelector = VertexCategorySelector( 
-    cut = "is('BWeakDecay') && !is('CWeakDecay')",
-    src = 'svTagInfoVertexProxy'
+    src = cms.InputTag('svTagInfoVertexProxy'),
+    cut = cms.string("is('BWeakDecay') && !is('CWeakDecay')")
 )
 
 process.vertexHistoryAnalyzer = cms.EDAnalyzer("VertexHistoryAnalyzer",

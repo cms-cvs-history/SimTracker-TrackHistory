@@ -10,19 +10,20 @@ process.load("SimTracker.TrackHistory.VertexClassifier_cff")
 
 process.add_(
   cms.Service("TFileService",
-      fileName = cms.string("VertexValidation.root")
+      fileName = cms.string("SVTagInfoValidation.root")
   )
 )
 
-process.vertexValidationAnalyzer = cms.EDFilter("VertexValidationAnalyzer",
-    process.vertexClassifier
+process.svTagInfoValidationAnalyzer = cms.EDFilter("SVTagInfoValidationAnalyzer",
+    process.vertexClassifier,
+    svTagInfoProducer = cms.untracked.InputTag('secondaryVertexTagInfos')
 )
 
 process.GlobalTag.globaltag = 'IDEAL_30X::All'
 
-process.vertexValidationAnalyzer.vertexProducer = 'svTagInfoVertexProxy'
+process.svTagInfoValidationAnalyzer.vertexProducer = 'svTagInfoVertexProxy'
 
-process.p = cms.Path(process.playback * process.svTagInfoVertexProxy * process.vertexValidationAnalyzer)
+process.p = cms.Path(process.playback * process.svTagInfoVertexProxy * process.svTagInfoValidationAnalyzer)
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(100) )
 readFiles = cms.untracked.vstring()
