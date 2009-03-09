@@ -1,4 +1,4 @@
-void OptTOA()
+void QualityCutsPlots()
 {
     gROOT->SetStyle("Plain");
     TFile * file = new TFile("test.root");
