@@ -13,7 +13,7 @@
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/ServiceRegistry/interface/Service.h"
 
-#include "PhysicsTools/UtilAlgos/interface/TFileService.h"
+#include "CommonTools/UtilAlgos/interface/TFileService.h"
 
 #include "SimTracker/TrackHistory/interface/TrackClassifier.h"
 
@@ -105,4 +105,4 @@ void TrackingParticleCategoriesAnalyzer::analyze(const edm::Event& event, const 
 }
 
 
-DEFINE_ANOTHER_FWK_MODULE(TrackingParticleCategoriesAnalyzer);
+DEFINE_FWK_MODULE(TrackingParticleCategoriesAnalyzer);
